@@ -2,93 +2,105 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Zone Analysis Dashboard</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <link rel="stylesheet" href="style.css">
+    <title>MP to Maharashtra Road Journey</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>India Zone Analysis Dashboard</h1>
-            <p class="subtitle">Click on zones to view accident data and future projections</p>
-        </header>
+    <div class="leaflet-container">
+       
         
-        <div class="dashboard">
-            <div class="map-container">
-                <div id="map"></div>
-                <div class="legend">
-                    <h3>Zone Risk Levels</h3>
-                    <div class="legend-item">
-                        <div class="legend-color red"></div>
-                        <span>Red Zone (High Risk)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color yellow"></div>
-                        <span>Yellow Zone (Above-moderate)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color orange"></div>
-                        <span>Orange Zone (Moderate)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color blue"></div>
-                        <span>Blue Zone (Very Low Risk)</span>
-                    </div>
-                </div>
+        <div class="route-container">
+            <div class="map-section">
+                <h2 class="map-title">Interactive Road Route Map</h2>
+                <div id="routeMap"></div>
+                
+                
+                <div class="car-status" id="carStatus">Ready to start the journey from Bhopal to Mumbai</div>
             </div>
             
-            <div class="info-panel">
-                <div class="zone-info">
-                    <div class="zone-title">
-                        <div class="zone-color red"></div>
-                        <h2 id="zone-name">Select a Zone</h2>
-                    </div>
-                    <p id="zone-description">Click on any colored zone on the map to view its data</p>
-                    
-                    <div class="stats">
-                        <div class="stat-box">
-                            <div class="stat-label">Total Accidents (2024)</div>
-                            <div class="stat-value" id="total-accidents">-</div>
+            <div class="info-section">
+                <h2 class="info-title">Journey Highlights</h2>
+                <ul class="journey-points">
+                    <li data-lat="23.2599" data-lng="77.4126" class="active">
+                        <div class="point-title">
+                            <i>📍</i> Bhopal, Madhya Pradesh
                         </div>
-                        <div class="stat-box">
-                            <div class="stat-label">Change from 2020</div>
-                            <div class="stat-value" id="change-percent">-</div>
+                        <div class="point-desc">
+                            Start your journey from the city of lakes, known for its rich history and culture.
                         </div>
-                        <div class="stat-box">
-                            <div class="stat-label">Projected 2028</div>
-                            <div class="stat-value" id="projected-accidents">-</div>
+                    </li>
+                    <li data-lat="22.7196" data-lng="75.8577">
+                        <div class="point-title">
+                            <i>📍</i> Indore, Madhya Pradesh
                         </div>
-                    </div>
-                </div>
+                        <div class="point-desc">
+                            Experience the street food capital of India before heading towards Maharashtra.
+                        </div>
+                    </li>
+                    <li data-lat="20.9042" data-lng="74.7749">
+                        <div class="point-title">
+                            <i>📍</i> Dhule, Maharashtra
+                        </div>
+                        <div class="point-desc">
+                            Gateway to Maharashtra with beautiful landscapes and historical sites.
+                        </div>
+                    </li>
+                    <li data-lat="20.0058" data-lng="73.7906">
+                        <div class="point-title">
+                            <i>📍</i> Nashik, Maharashtra
+                        </div>
+                        <div class="point-desc">
+                            Explore the wine capital of India and ancient temples along the Godavari river.
+                        </div>
+                    </li>
+                    <li data-lat="18.5204" data-lng="73.8567">
+                        <div class="point-title">
+                            <i>📍</i> Pune, Maharashtra
+                        </div>
+                        <div class="point-desc">
+                            Cultural hub with a blend of history and modernity, surrounded by hills.
+                        </div>
+                    </li>
+                    <li data-lat="19.0760" data-lng="72.8777">
+                        <div class="point-title">
+                            <i>📍</i> Mumbai, Maharashtra
+                        </div>
+                        <div class="point-desc">
+                            Final destination - the bustling financial capital of India with endless attractions.
+                        </div>
+                    </li>
+                </ul>
                 
-                <div class="time-filter">
-                    <button class="time-btn active" id="past-btn">Past Data</button>
-                    <button class="time-btn" id="future-btn">Future Projection</button>
-                </div>
-                
-                <div class="chart-container">
-                    <canvas id="data-chart"></canvas>
+                <div class="distance-info">
+                    <h3>Total Distance: Approximately 800 km</h3>
+                    <p>Estimated Travel Time: 14-16 hours by road</p>
                 </div>
             </div>
         </div>
         
-        <footer>
-            <p>India Zone Analysis Dashboard &copy; 2023 | Data visualization for accident analysis and future projections</p>
-        </footer>
+        <div class="leaflet-footer">
+            <p>Plan your road trip from Madhya Pradesh to Maharashtra | Explore the heart of India</p>
+        </div>
     </div>
 
-   
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
 
 
 
