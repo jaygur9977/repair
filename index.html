@@ -1,0 +1,94 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Zone Analysis Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>India Zone Analysis Dashboard</h1>
+            <p class="subtitle">Click on zones to view accident data and future projections</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="legend">
+                    <h3>Zone Risk Levels</h3>
+                    <div class="legend-item">
+                        <div class="legend-color red"></div>
+                        <span>Red Zone (High Risk)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color yellow"></div>
+                        <span>Yellow Zone (Above-moderate)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color orange"></div>
+                        <span>Orange Zone (Moderate)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color blue"></div>
+                        <span>Blue Zone (Very Low Risk)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-panel">
+                <div class="zone-info">
+                    <div class="zone-title">
+                        <div class="zone-color red"></div>
+                        <h2 id="zone-name">Select a Zone</h2>
+                    </div>
+                    <p id="zone-description">Click on any colored zone on the map to view its data</p>
+                    
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-label">Total Accidents (2024)</div>
+                            <div class="stat-value" id="total-accidents">-</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Change from 2020</div>
+                            <div class="stat-value" id="change-percent">-</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Projected 2028</div>
+                            <div class="stat-value" id="projected-accidents">-</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="time-filter">
+                    <button class="time-btn active" id="past-btn">Past Data</button>
+                    <button class="time-btn" id="future-btn">Future Projection</button>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="data-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>India Zone Analysis Dashboard &copy; 2023 | Data visualization for accident analysis and future projections</p>
+        </footer>
+    </div>
+
+   
+</body>
+</html>
+
+
+
